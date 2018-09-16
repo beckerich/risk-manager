@@ -48,11 +48,12 @@ class Calculator extends BaseComponent {
 		);
 	}
 
-	renderTextfield(entry) {
+	renderTextfield(entry, index) {
 		const classes = this.props.classes;
 
 		return (
 			<TextField
+				key={index}
 				className={classes.textField}
 				align="left"
 				label={entry.name}

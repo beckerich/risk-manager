@@ -9,7 +9,8 @@ export default withStyles(theme => {
 			margin: '12px auto',
 			background: 'white',
 			padding: '12px',
-			maxWidth: '1080px'
+			maxWidth: 'calc(100% - 24px)',
+			width: '1080px'
 		}
 	};
 });
