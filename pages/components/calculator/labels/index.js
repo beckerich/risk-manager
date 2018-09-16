@@ -9,10 +9,10 @@ class Label extends BaseComponent {
 		const classes = this.props.classes;
         
 		return (
-			<div className={classes.root}>
-				<Typography className={classes.root} align="left" variant="caption">{this.props.name}: </Typography>
+			<div>
+				<Typography className={classes.root} align="left" variant="caption">{this.props.name}, </Typography>
                 
-                <Typography className={classes.root} align="left" variant="caption">{this.props.value}: </Typography>
+                <Typography className={classes.root} align="left" variant="caption"> {this.props.value}: </Typography>
             </div>
 		);
 	}

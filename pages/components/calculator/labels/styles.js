@@ -5,7 +5,8 @@ export default withStyles(theme => {
 
 	return {
 		root: {
-            fontSize: '1em'
+            fontSize: '1em',
+            display: 'inline-block'
         }
 	};
 });

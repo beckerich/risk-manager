@@ -11,10 +11,13 @@ class Calculator extends BaseComponent {
 		const classes = this.props.classes;
 
 		return (
-			<div className={classes.root}>
+			<div>
 				<Typography align="center" variant="title">Risk Manager</Typography>
-            
-                <Label />
+                
+                <Label name="Risk Return Ratio" value="1R" />
+                <Label name="Position Size" value="1R" />
+                <Label name="Target Percent Change" value="1R" />
+                <Label name="Loss Percent Change" value="1R" />
 			</div>
 		);
 	}
