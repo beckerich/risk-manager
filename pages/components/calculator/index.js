@@ -14,7 +14,7 @@ class Calculator extends BaseComponent {
 			<div className={classes.root}>
 				<Typography align="center" variant="title">Risk Manager</Typography>
             
-                <Labels />
+                <Label />
 			</div>
 		);
 	}
