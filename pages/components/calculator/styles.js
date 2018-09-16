@@ -1,4 +1,5 @@
 import { withStyles } from '@material-ui/core/styles';
+import { TextField } from '@material-ui/core';
 
 export default withStyles(theme => {
 	const colors = theme.palette.colors;
@@ -7,6 +8,10 @@ export default withStyles(theme => {
 		root: {
 			height: '100%',
 			width: '100%'
+		},
+		textField: {
+marginTop: '12px'
+
 		}
 	};
 });
