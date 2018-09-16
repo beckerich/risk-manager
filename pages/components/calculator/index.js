@@ -15,57 +15,78 @@ class Calculator extends BaseComponent {
 				<Typography align="center" variant="title">
 					Risk Manager
 				</Typography>
-				<TextField
+				<TextField className={classes.textField}
 					align="left"
-					label="Position Size"
+					label="Account Balance"
 					fullWidth={true}
 					className={classes.textField}
-					value={this.state.positionSize}
+					value={this.state.accountBalance}
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>
+						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						disableUnderline: true
+
 					}}
 				/>
-				<TextField
+				<TextField className={classes.textField}
 					align="left"
 					label="Risk Amount"
 					InputProps={{
-						startAdornment: <InputAdornment position="start">%</InputAdornment>
+						startAdornment: <InputAdornment position="start">%</InputAdornment>,
+						disableUnderline: true
+
 					}}
 					className={classes.textField}
 					value={this.state.riskAmount}
 					fullWidth={true}
 				/>
-				<TextField
+				<TextField className={classes.textField}
 					align="left"
 					label="Entry Price"
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>
+						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						disableUnderline: true
+
 					}}
 					className={classes.textField}
 					value={this.state.entryPrice}
 					fullWidth={true}
 				/>
-				<TextField
+				<TextField className={classes.textField}
 					align="left"
 					label="Target Price"
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>
+						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						disableUnderline: true
+
 					}}
 					className={classes.textField}
 					value={this.state.targetPrice}
 					fullWidth={true}
 				>
-					<TextField
+					<TextField className={classes.textField}
 						align="left"
 						label="Stop price"
 						InputProps={{
-							startAdornment: <InputAdornment position="start">$</InputAdornment>
+							startAdornment: <InputAdornment position="start">$</InputAdornment>,
+							disableUnderline: true
 						}}
 						className={classes.textField}
 						value={this.state.stopPrice}
 						fullWidth={true}
 					/>
 				</TextField>
+				<TextField className={classes.textField}
+					align="left"
+					label="Stop Price"
+					fullWidth={true}
+					className={classes.textField}
+					value={this.state.stopPrice}
+					InputProps={{
+						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						disableUnderline: true
+
+					}}
+				/>
 			</div>
 		);
 	}
