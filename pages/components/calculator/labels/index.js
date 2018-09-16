@@ -18,4 +18,4 @@ class Label extends BaseComponent {
 	}
 }
 
-export default withStyles(Labels);
+export default withStyles(Label);
