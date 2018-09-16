@@ -10,8 +10,10 @@ export default withStyles(theme => {
 			width: '100%'
 		},
 		textField: {
-marginTop: '12px'
-
+			marginTop: '8px'
+		},
+		inputAdornment: {
+			marginLeft: '8px'
 		}
 	};
 });

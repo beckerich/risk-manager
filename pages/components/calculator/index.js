@@ -22,7 +22,7 @@ class Calculator extends BaseComponent {
 					className={classes.textField}
 					value={this.state.accountBalance}
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
 						disableUnderline: true
 
 					}}
@@ -31,7 +31,7 @@ class Calculator extends BaseComponent {
 					align="left"
 					label="Risk Amount"
 					InputProps={{
-						startAdornment: <InputAdornment position="start">%</InputAdornment>,
+						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>%</InputAdornment>,
 						disableUnderline: true
 
 					}}
@@ -43,7 +43,7 @@ class Calculator extends BaseComponent {
 					align="left"
 					label="Entry Price"
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
 						disableUnderline: true
 
 					}}
@@ -55,7 +55,7 @@ class Calculator extends BaseComponent {
 					align="left"
 					label="Target Price"
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
 						disableUnderline: true
 
 					}}
@@ -67,7 +67,7 @@ class Calculator extends BaseComponent {
 						align="left"
 						label="Stop price"
 						InputProps={{
-							startAdornment: <InputAdornment position="start">$</InputAdornment>,
+							startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
 							disableUnderline: true
 						}}
 						className={classes.textField}
@@ -82,7 +82,7 @@ class Calculator extends BaseComponent {
 					className={classes.textField}
 					value={this.state.stopPrice}
 					InputProps={{
-						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
 						disableUnderline: true
 
 					}}
