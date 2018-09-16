@@ -10,84 +10,64 @@ class Calculator extends BaseComponent {
 	render() {
 		const classes = this.props.classes;
 
+		const entries = [
+			{
+				name: 'Account Balance',
+				adornment: '$',
+				key: 'accountBalance'
+			},
+			{
+				name: 'Risk Amount',
+				adornment: '%',
+				key: 'riskAmount'
+			},
+			{
+				name: 'Entry Price',
+				adornment: '$',
+				key: 'entryPrice'
+			},
+			{
+				name: 'Target Price',
+				adornment: '$',
+				key: 'targetPrice'
+			},
+			{
+				name: 'Stop Price',
+				adornment: '$',
+				key: 'targetPrice'
+			}
+		];
+
 		return (
 			<div className={classes.root}>
 				<Typography align="center" variant="title">
 					Risk Manager
 				</Typography>
-				<TextField className={classes.textField}
-					align="left"
-					label="Account Balance"
-					fullWidth={true}
-					className={classes.textField}
-					value={this.state.accountBalance}
-					InputProps={{
-						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
-						disableUnderline: true
-
-					}}
-				/>
-				<TextField className={classes.textField}
-					align="left"
-					label="Risk Amount"
-					InputProps={{
-						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>%</InputAdornment>,
-						disableUnderline: true
-
-					}}
-					className={classes.textField}
-					value={this.state.riskAmount}
-					fullWidth={true}
-				/>
-				<TextField className={classes.textField}
-					align="left"
-					label="Entry Price"
-					InputProps={{
-						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
-						disableUnderline: true
-
-					}}
-					className={classes.textField}
-					value={this.state.entryPrice}
-					fullWidth={true}
-				/>
-				<TextField className={classes.textField}
-					align="left"
-					label="Target Price"
-					InputProps={{
-						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
-						disableUnderline: true
-
-					}}
-					className={classes.textField}
-					value={this.state.targetPrice}
-					fullWidth={true}
-				>
-					<TextField className={classes.textField}
-						align="left"
-						label="Stop price"
-						InputProps={{
-							startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
-							disableUnderline: true
-						}}
-						className={classes.textField}
-						value={this.state.stopPrice}
-						fullWidth={true}
-					/>
-				</TextField>
-				<TextField className={classes.textField}
-					align="left"
-					label="Stop Price"
-					fullWidth={true}
-					className={classes.textField}
-					value={this.state.stopPrice}
-					InputProps={{
-						startAdornment: <InputAdornment position="start" className={classes.inputAdornment}>$</InputAdornment>,
-						disableUnderline: true
-
-					}}
-				/>
+				{entries.map(this.renderTextfield.bind(this))}
 			</div>
+		);
+	}
+
+	renderTextfield(entry) {
+		const classes = this.props.classes;
+
+		return (
+			<TextField
+				className={classes.textField}
+				align="left"
+				label={entry.name}
+				fullWidth={true}
+				className={classes.textField}
+				value={this.state[entry.key]}
+				InputProps={{
+					startAdornment: (
+						<InputAdornment position="start" className={classes.inputAdornment}>
+							{entry.adornment}
+						</InputAdornment>
+					),
+					disableUnderline: true
+				}}
+			/>
 		);
 	}
 }
