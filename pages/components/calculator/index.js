@@ -67,6 +67,7 @@ class Calculator extends BaseComponent {
 				align="left"
 				label={entry.name}
 				fullWidth={true}
+				type="number"
 				className={classes.textField}
 				value={this.state[entry.key]}
 				InputProps={{
