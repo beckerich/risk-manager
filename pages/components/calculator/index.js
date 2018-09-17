@@ -1,12 +1,17 @@
 import BaseComponent from '../../lib/BaseComponent';
 
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 import withStyles from './styles';
 
 class Calculator extends BaseComponent {
+	state = {
+
+	};
+
 	render() {
 		const classes = this.props.classes;
 
@@ -41,9 +46,13 @@ class Calculator extends BaseComponent {
 		return (
 			<div className={classes.root}>
 				<Typography align="center" variant="title">
-					Risk Manager
+					Position Size Calculator
 				</Typography>
-				{entries.map(this.renderTextfield.bind(this))}
+				<Grid container spacing={24}>
+					<Grid item xs={12} sm={6}>
+						{entries.map(this.renderTextfield.bind(this))}
+					</Grid>
+				</Grid>
 			</div>
 		);
 	}
