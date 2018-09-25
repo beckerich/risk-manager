@@ -96,7 +96,7 @@ class Calculator extends BaseComponent {
 	onChangeTextField(key, evt) {
 		evt.preventDefault();
 		let value = evt.target.value; // Value in the textfield
-		[value] >= 0 ? this.setState({ [key]: value }) : 0;
+		[value] >= 0 && [value] !== e ? this.setState({ [key]: value }) : 0;
 	}
 }
 
