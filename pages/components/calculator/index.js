@@ -46,7 +46,6 @@ class Calculator extends BaseComponent {
 				key: 'stopPrice'
 			}
 		];
-		console.log(this.state);
 		return (
 			<div className={classes.root}>
 				<Typography align="center" variant="title">
