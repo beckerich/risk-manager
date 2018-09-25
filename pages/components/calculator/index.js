@@ -8,7 +8,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import withStyles from './styles';
 
 class Calculator extends BaseComponent {
-	state = {};
+	state = {
+
+	};
 
 	render() {
 		const classes = this.props.classes;
@@ -76,14 +78,8 @@ class Calculator extends BaseComponent {
 					),
 					disableUnderline: true
 				}}
-				onChange={this.onChangeTextField.bind(this)}
 			/>
 		);
-	}
-	onChangeTextField(evt) {
-		evt.preventDefault();
-		let value = evt.target.value; // Value in the textfield
-		this.setState({ key: value });
 	}
 }
 
