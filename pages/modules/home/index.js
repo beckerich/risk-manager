@@ -14,7 +14,7 @@ class HomePage extends BaseComponent {
 		return (
 			<div>
 				<Grid className={classes.gridContainer} container spacing={24}>
-					<Grid item xs={12}>
+					<Grid item xs={12} sm={6} md={5} className={classes.gridItem}>
 						<Calculator />
 					</Grid>
 				</Grid>

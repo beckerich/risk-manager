@@ -5,8 +5,8 @@ export default withStyles(theme => {
 
 	return {
 		root: {
-            fontSize: '1em',
-            display: 'inline-block'
-        }
-	};
+            marginTop: '10px',
+            marginBottom: '10px'
+	   }
+    }
 });
