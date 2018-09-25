@@ -7,17 +7,16 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 import withStyles from './styles';
 
-import Label from './labels'
+import Label from './labels';
 
 class Calculator extends BaseComponent {
 	state = {
 		accountBalance: 0,
-		riskAmount: 0,
+		riskAmount: 3,
 		entryPrice: 0,
 		targetPrice: 0,
 		stopPrice: 0
 	};
-
 	render() {
 		const classes = this.props.classes;
 
@@ -53,17 +52,17 @@ class Calculator extends BaseComponent {
 				<Typography align="center" variant="title">
 					Position Size Calculator
 				</Typography>
-        
+
 				<Grid container spacing={24}>
 					<Grid item xs={12} sm={6}>
 						{entries.map(this.renderTextfield.bind(this))}
 					</Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Label name="Risk Return Ratio" value="1R" />
-                        <Label name="Position Size" value="1R" />
-                        <Label name="Target Percent Change" value="1R" />
-                        <Label name="Loss Percent Change" value="1R" />
-                    </Grid>
+					<Grid item xs={12} sm={6}>
+						<Label name="Risk Return Ratio" value="1R" />
+						<Label name="Position Size" value="1R" />
+						<Label name="Target Percent Change" value="1R" />
+						<Label name="Loss Percent Change" value="1R" />
+					</Grid>
 				</Grid>
 			</div>
 		);
@@ -97,7 +96,7 @@ class Calculator extends BaseComponent {
 	onChangeTextField(key, evt) {
 		evt.preventDefault();
 		let value = evt.target.value; // Value in the textfield
-		this.setState({ [key]: value });
+		[value] >= 0 ? this.setState({ [key]: value }) : 0;
 	}
 }
 
