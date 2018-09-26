@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import bigNumber from 'bignumber.js';
 
 import withStyles from './styles';
 
@@ -11,11 +12,11 @@ import Label from './labels';
 
 class Calculator extends BaseComponent {
 	state = {
-		accountBalance: 0,
+		accountBalance: 100,
 		riskAmount: 3,
-		entryPrice: 0,
-		targetPrice: 0,
-		stopPrice: 0
+		entryPrice: 10,
+		targetPrice: 20,
+		stopPrice: 5
 	};
 	render() {
 		const classes = this.props.classes;
@@ -47,6 +48,38 @@ class Calculator extends BaseComponent {
 				key: 'stopPrice'
 			}
 		];
+
+		const entryPrice = bigNumber(this.state.entryPrice);
+		const stopPrice = bigNumber(this.state.stopPrice);
+		const exitPrice = bigNumber(this.state.targetPrice);
+		const balance = bigNumber(this.state.accountBalance);
+		let risk = bigNumber(this.state.riskAmount).dividedBy(100);
+		const entryStopPercentDiff = entryPrice
+			.minus(stopPrice)
+			.abs()
+			.dividedBy(entryPrice.plus(stopPrice).dividedBy(2));
+		const baseCost = balance.times(risk).dividedBy(entryStopPercentDiff);
+		const amount = baseCost.dividedBy(entryPrice);
+
+		console.log({ baseCost, amount, entryStopPercentDiff });
+
+		const gain = amount.times(exitPrice.minus(entryPrice)).abs();
+		const loss = amount.times(stopPrice.minus(entryPrice)).abs();
+		const exitBalance = balance.plus(gain);
+		const stopBalance = balance.minus(loss);
+		const balanceGainPercentDiff = balance
+			.minus(exitBalance)
+			.abs()
+			.dividedBy(balance.plus(exitBalance).dividedBy(2));
+		const balanceLossPercentDiff = balance
+			.minus(stopBalance)
+			.abs()
+			.dividedBy(balance.plus(stopBalance).dividedBy(2));
+		const riskReturn = entryPrice
+			.minus(exitPrice)
+			.abs()
+			.dividedBy(entryPrice.minus(stopPrice).abs());
+
 		return (
 			<div className={classes.root}>
 				<Typography align="center" variant="title">
@@ -58,10 +91,10 @@ class Calculator extends BaseComponent {
 						{entries.map(this.renderTextfield.bind(this))}
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<Label name="Risk Return Ratio" value="1R" />
-						<Label name="Position Size" value="1R" />
-						<Label name="Target Percent Change" value="1R" />
-						<Label name="Loss Percent Change" value="1R" />
+						<Label name="Risk Return Ratio" value={riskReturn.toFixed(2)} />
+						<Label name="Position Size" value={amount.toFixed()} />
+						<Label name="Target Percent Change" value={balanceGainPercentDiff.toFixed(2)} />
+						<Label name="Loss Percent Change" value={balanceLossPercentDiff.toFixed(2)} />
 					</Grid>
 				</Grid>
 			</div>
