@@ -409,3 +409,5 @@ FakesAssemblies/
 docker-compose.yml
 
 notes.txt
+
+.vscode
