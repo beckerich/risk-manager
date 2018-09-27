@@ -410,6 +410,4 @@ docker-compose.yml
 
 notes.txt
 
-.vscode/
-
-.vscode/launch.json/
+.vscode
