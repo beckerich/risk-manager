@@ -17,6 +17,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"@material-ui/core": "^3.0.3",
+		"axios": "0.18.0",
 		"babel-plugin-inline-dotenv": "1.1.2",
 		"babel-plugin-transform-inline-environment-variables": "0.4.3",
 		"bignumber.js": "8.0.2",
