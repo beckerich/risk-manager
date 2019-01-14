@@ -5,18 +5,21 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
+import Trader from '../../lib/trader';
+
 import withStyles from './styles';
 
-import Label from './labels';
+import Label from './label';
 
 class Calculator extends BaseComponent {
 	state = {
-		accountBalance: 0,
+		accountBalance: 100,
 		riskAmount: 3,
-		entryPrice: 0,
-		targetPrice: 0,
-		stopPrice: 0
+		entryPrice: 10,
+		targetPrice: 12,
+		stopPrice: 9
 	};
+
 	render() {
 		const classes = this.props.classes;
 
@@ -47,10 +50,19 @@ class Calculator extends BaseComponent {
 				key: 'stopPrice'
 			}
 		];
+
+		const position = Trader.createPosition('long', {
+			balance: this.state.accountBalance,
+			price: this.state.entryPrice,
+			stop: this.state.stopPrice,
+			target: this.state.targetPrice,
+			risk: this.state.riskAmount
+		});
+
 		return (
 			<div className={classes.root}>
-				<Typography align="center" variant="title">
-					Position Size Calculator
+				<Typography align="center" className={classes.title}>
+					Risk Management Calculator
 				</Typography>
 
 				<Grid container spacing={24}>
@@ -58,10 +70,26 @@ class Calculator extends BaseComponent {
 						{entries.map(this.renderTextfield.bind(this))}
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<Label name="Risk Return Ratio" value="1R" />
-						<Label name="Position Size" value="1R" />
-						<Label name="Target Percent Change" value="1R" />
-						<Label name="Loss Percent Change" value="1R" />
+						<Grid container spacing={16} style={{ marginTop: '0px' }}>
+							<Grid item xs={12}>
+								<Label name="Risk Return Ratio" value={`${position.rValue.toFixed(0)}R`} />
+							</Grid>
+							<Grid item xs={12}>
+								<Label name="Position Size" value={`${position.amount.toFixed(2)} units`} />
+							</Grid>
+							<Grid item xs={12}>
+								<Label
+									name="Target Percent Change"
+									value={`${position.percentGain.times(100).toFixed(2)}%`}
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<Label
+									name="Loss Percent Change"
+									value={`${position.percentLoss.times(100).toFixed(2)}%`}
+								/>
+							</Grid>
+						</Grid>
 					</Grid>
 				</Grid>
 			</div>

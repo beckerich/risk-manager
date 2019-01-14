@@ -14,6 +14,11 @@ export default withStyles(theme => {
 		},
 		inputAdornment: {
 			marginLeft: '8px'
+		},
+		title: {
+			fontWeight: 'bold',
+			fontSize: '24px',
+			marginBottom: '18px'
 		}
 	};
 });
