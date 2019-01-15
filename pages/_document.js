@@ -16,7 +16,7 @@ class CustomDocument extends Document {
 						content="user-scalable=0, initial-scale=1, minimum-scale=1, width=device-width, height=device-height"
 					/>
 
-					<title>Poolminer</title>
+					<title>Risk Manager</title>
 					<link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
 
 					<base href="/" />
