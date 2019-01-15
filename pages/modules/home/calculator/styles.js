@@ -6,8 +6,10 @@ export default withStyles(theme => {
 
 	return {
 		root: {
-			height: '100%',
-			width: '100%'
+			width: '100%',
+			borderRadius: '7px',
+			background: colors.white,
+			padding: '12px'
 		},
 		textField: {
 			marginTop: '8px'

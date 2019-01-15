@@ -1,4 +1,4 @@
-import BaseComponent from '../../../lib/BaseComponent';
+import BaseComponent from '../../../../lib/BaseComponent';
 
 import Typography from '@material-ui/core/Typography';
 
