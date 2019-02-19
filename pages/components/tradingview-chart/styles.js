@@ -4,10 +4,9 @@ export default withStyles(theme => {
 	const colors = theme.palette.colors;
 
 	return {
-		gridContainer: {
-			margin: '12px auto',
-			maxWidth: 'calc(100% - 24px)',
-			width: '1440px'
+		container: {
+			height: '100%',
+			width: '100%'
 		}
 	};
 });

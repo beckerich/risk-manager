@@ -3,8 +3,8 @@ import { withRouter } from 'next/router';
 import ccxt from 'ccxt';
 
 import Calculator from './calculator';
-
 import Market from './market';
+import TradingView from '../../components/tradingview-chart';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -33,7 +33,10 @@ class HomePage extends BaseComponent {
 
 		return (
 			<div>
-				<Grid className={classes.gridContainer} container spacing={24}>
+				<Grid className={classes.gridContainer} container spacing={16}>
+					<Grid item xs={12}>
+						{this.renderTradingView()}
+					</Grid>
 					<Grid item xs={12} sm={6} md={7}>
 						<Calculator market={this.state.selectedMarket} />
 					</Grid>
@@ -44,6 +47,16 @@ class HomePage extends BaseComponent {
 					</Grid>
 				</Grid>
 			</div>
+		);
+	}
+
+	renderTradingView() {
+		if (this.state.loading) {
+			return;
+		}
+
+		return (
+			<TradingView market={this.state.selectedMarket} />
 		);
 	}
 
@@ -61,7 +74,9 @@ class HomePage extends BaseComponent {
 	}
 
 	handleClickMarket(selectedMarket) {
-		this.setState({ selectedMarket });
+		this.setState({ selectedMarket, loading: true }, () => {
+			this.setState({ loading: false });
+		});
 	}
 }
 

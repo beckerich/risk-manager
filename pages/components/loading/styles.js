@@ -7,6 +7,7 @@ export default withStyles(theme => {
 		loading: {
 			height: '100%',
 			width: '100%',
+			top: 0,
 			position: 'fixed',
 			background: 'white',
 			zIndex: 3000
