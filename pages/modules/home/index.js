@@ -1,9 +1,11 @@
 import BaseComponent from '../../lib/BaseComponent';
 import { withRouter } from 'next/router';
 import ccxt from 'ccxt';
+import _ from 'lodash';
 
 import Calculator from './calculator';
 import Market from './market';
+import TradeHistory from './trade-history';
 import TradingView from '../../components/tradingview-chart';
 
 import Grid from '@material-ui/core/Grid';
@@ -26,6 +28,10 @@ class HomePage extends BaseComponent {
 
 	componentDidMount() {
 		this.setState({ selectedMarket: this.props.markets[0] });
+
+		setInterval(() => {
+			//const collection  = _.get(chartWidget || {}, '_chartWidgetCollection');
+		}, 2000);
 	}
 
 	render() {
@@ -39,6 +45,7 @@ class HomePage extends BaseComponent {
 					</Grid>
 					<Grid item xs={12} sm={6} md={7}>
 						<Calculator market={this.state.selectedMarket} />
+						<TradeHistory market={this.state.selectedMarket}/>
 					</Grid>
 					<Grid item xs={12} sm={6} md={5}>
 						<div className={classes.markets}>

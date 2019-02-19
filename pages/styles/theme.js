@@ -82,34 +82,6 @@ export default createMuiTheme({
 			},
 		},
 		MuiInput: {
-			root: {
-				backgroundColor: colors.concrete,
-				borderRadius: '7px',
-				color: colors.black,
-				fontSize: '14px',
-				fontWeight: 300,
-				lineHeight: '20px',
-				paddingTop: 4,
-				paddingBottom: 4
-			},
-			input: {
-				paddingLeft: 8,
-				paddingRight: 8,
-				width: 'calc(100% - 16px)',
-				'&::placeholder': {
-					opacity: `.5 !important`,
-				}
-			},
-			underline: {
-				'&:after': {
-					backgroundColor: colors.main
-				}
-			},
-			inputMultiline: {
-				paddingLeft: 8,
-				paddingRight: 8,
-				width: 'calc(100% - 16px)'
-			}
 		},
 		MuiFormLabel: {
 			focused: {

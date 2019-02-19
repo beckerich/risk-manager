@@ -16,7 +16,7 @@ class TradingViewChart extends BaseComponent {
 	}
 
 	init() {
-		this.widget = new TradingView.widget({
+		new TradingView.widget({
 			symbol: `BITMEX:${this.props.market.id}`,
 			allow_symbol_change: false,
 			hide_side_toolbar: false,

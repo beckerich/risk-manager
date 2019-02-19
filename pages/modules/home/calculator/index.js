@@ -148,7 +148,6 @@ class Calculator extends BaseComponent {
 							{entry.adornment}
 						</InputAdornment>
 					),
-					disableUnderline: true,
 					inputProps: {
 						step: entry.step
 					}
